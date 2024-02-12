@@ -43,6 +43,7 @@ def calculate():
     result = ((1 - (base ** (math.e**(individual-mean)))) * 100)
     color = 'red' if result >= 7.5 else '#00ff00'
     txt_result.config(text = f'{result:.1f}%',   fg = color)
+
 file = "tenyrdata"
 data = open(file, 'r').readlines()
 data = [line.strip().split(',') for line in data]
@@ -58,15 +59,18 @@ root = tk.Tk()
 root.minsize(500, 650)
 root.grid_columnconfigure(0,weight=1)
 root.grid_rowconfigure(1,weight=1)
+
 frm_title = tk.Frame(root,  bd = 3, bg = OFF)
 frm_content = tk.Frame(root, bd = 3,background = OFF )
+frm_data = tk.Frame(frm_content, bd = 3, background = OFF )
+
 lbl_frm_sex = tk.LabelFrame(frm_content, text = 'sex', bd = 1, bg = OFF)
 lbl_frm_race = tk.LabelFrame(frm_content, text = 'race', bd = 1, bg = OFF)
 lbl_frm_history = tk.LabelFrame(frm_content, text = 'history', bd = 1, bg = OFF)
-frm_data = tk.Frame(frm_content, bd = 3, background = OFF )
 
 race_var = tk.StringVar()
 sex_var = tk.StringVar()
+
 lbl_font = tk.font.Font(size=20)
 lbl_lg_font = tk.font.Font(size=24)
 
